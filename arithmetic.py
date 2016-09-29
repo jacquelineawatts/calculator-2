@@ -1,54 +1,49 @@
-def add(num1, num2):
-	"""Add two numbers
+def add(numbers):
+    """Add variable amount of numbers
 
-	Add num1 to num2 to get an integer output"""
+    Add content of list numbers to get an integer output"""
 
-	return num1 + num2
+    return reduce(lambda x, y: x + y, numbers)
 
-def subtract(num1, num2):
-	"""Find the difference between two numbers
+def subtract(numbers):
+    """Find the difference between variable amount of numbers
 
-	Subtract num2 from num1 to get an integer output"""
+    Subtract contents of list numbers to get an integer output"""
 
-	return num1 - num2
+    return reduce(lambda x, y: x - y, numbers)
 
-def multiply(num1, num2):
-	"""Find the product of two numbers
-	Multiply num1 by num2 to get an integer output
-	"""
-	return num1 * num2
-
-def divide(num1, num2):
-    """Find the quotient of two numbers
-    Divide num1 by num2 to get a float
+def multiply(numbers):
+    """Find the product of variable amount of numbers
+    Multiply contents of list numbers to get an integer output
     """
+    return reduce(lambda x, y: x * y, numbers)
 
-    return float(num1) / float(num2)
+def divide(numbers):
+    """Find the quotient of variable amount of numbers
+    Divide initial list item by all following list contents to get a float
+    """
+    return reduce(lambda x, y: x / y, numbers)
 
-def square(num1):
-	""" Square a number.
-	Square num1 to get an integer output
-	"""
+def square(numbers):
+    """ Square a number.
+    Square num1 to get an integer output
+    """
+    return numbers[0] ** 2
 
-	return num1 * num1
-
-def cube(num1):
+def cube(numbers):
     """ Cube a number
     Cube num1 to get an integer output
     """
+    return numbers[0] ** 3
 
-    return num1 ** 3
+def power(numbers):
+    """Find the nth power of a number
+    Raise num1 to the power of num2 to get an integer output
+    """
+    return reduce(lambda x, y: x ** y, numbers)
 
-def power(num1, num2):
-	"""Find the nth power of a number
-	Raise num1 to the power of num2 to get an integer output
-	"""
-
-	return num1 ** num2
-
-def mod(num1, num2):
-	"""Find the remainder after the division of two numbers
-	Returns the remainder integer after dividing num1 by num2
-	"""
-
-	return num1 % num2
+def mod(numbers):
+    """Find the remainder after the division of two numbers
+    Returns the remainder integer after dividing num1 by num2
+    """
+    return reduce(lambda x, y: x % y, numbers)
