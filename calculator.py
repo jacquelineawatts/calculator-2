@@ -13,23 +13,24 @@ while True:
 		break
 	else:
 		list_input = user_input.split(" ")
-		if len(list_input) == 3:
-			argument_1, argument_2 = int(list_input[1]), int(list_input[2])
-		elif len(list_input) == 2:
-			argument_1, argument_2 = int(list_input[1]), 5
 
 		maths = {
-			"+": add(argument_1, argument_2), 
-			"-": subtract(argument_1, argument_2), 
-			"*": multiply(argument_1, argument_2), 
-			"/": divide(argument_1, argument_2), 
-			"square": square(argument_1), 
-			"cube": cube(argument_1), 
-			"pow": power(argument_1, argument_2), 
-			"mod": mod(argument_1, argument_2)}
+			"+": (add, 2),
+			"-": (subtract, 2),
+			"*": (multiply, 2),
+			"/": (divide, 2),
+			"square": (square, 1),
+			"cube": (cube, 1),
+			"pow": (power, 2),
+			"mod": (mod, 2)
+			}
+
+		fn_to_call, num_args = maths[list_input[0]]
 
 
-		if list_input[0] in maths:
-			value = maths[list_input[0]]
-			print value
+		if num_args == 1:
+			print fn_to_call(int(list_input[1]))
+		elif num_args == 2:
+			print fn_to_call(int(list_input[1]), int(list_input[2]))
 		
+# "reduce" "*""  <--- Increase number of arguments
